@@ -1,5 +1,5 @@
 fn main() {
-    println!("=== tch-rs CUDA Debug Info ===");
+    println!("tch-rs CUDA Debug Info");
     println!("LIBTORCH path: {:?}", std::env::var("LIBTORCH"));
     println!(
         "LIBTORCH_USE_PYTORCH: {:?}",
@@ -15,7 +15,7 @@ fn main() {
         std::env::var("CUDA_VISIBLE_DEVICES")
     );
 
-    println!("\n=== Basic CUDA Checks ===");
+    println!("\n Basic CUDA Checks");
     println!(
         "Device::cuda_if_available(): {:?}",
         tch::Device::cuda_if_available()
@@ -25,7 +25,7 @@ fn main() {
     let device_count = tch::Cuda::device_count();
     println!("Cuda::device_count(): {}", device_count);
 
-    println!("\n=== CUDA Device Creation Test ===");
+    println!("\nCUDA Device Creation Test");
     match std::panic::catch_unwind(|| {
         let device = tch::Device::Cuda(0);
         println!("CUDA device created: {:?}", device);
@@ -40,7 +40,7 @@ fn main() {
         Err(e) => println!("CUDA operations panicked: {:?}", e),
     }
 
-    println!("\n=== Additional CUDA Tests ===");
+    println!("\nAdditional CUDA Tests");
     if tch::Cuda::is_available() {
         println!("CUDA is reported as available");
     } else {

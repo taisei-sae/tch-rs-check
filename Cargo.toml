@@ -2,6 +2,6 @@
 name = "tch-rs-check"
 version = "0.1.0"
 edition = "2024"
-
+build = "build.rs"
 [dependencies]
 tch = "=0.20.0"
